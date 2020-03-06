@@ -1,1 +1,3 @@
-# s14-mp16
+# Simplix
+## Stacey Barretto, Liyana Dominguez, Tristan Manalad
+Dominguez, Liyana
