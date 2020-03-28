@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel='stylesheet' type='text/css' href='/stylesheets/login.css' />
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <script>
+            const pwsupp="webapde"
+            const unsupp="louispie"
+            
+            $(document).ready(function(e){
+                $(".btn").submit(function(e){
+                    e.preventDefault()
+					send()					
+                });
+                
+                $(".btn").click(send)
+                
+                function send(){
+                    console.log("reached send function")
+                    var location=''
+                    let un = $(".usernamein").val()
+                    let pw = $(".passwordin").val()
+                    
+                    if(un==unsupp && pw==pwsupp){
+                        login()
+//                        alert("SADASD")
+                    }
+                    else if(un=='' || pw==''){
+                        alert("MUST ENTER CREDENTIALS")
+                    }
+                    else{
+                        alert("WRONG PASSWORD/USERNAME")
+                    }
+                    
+                    
+                }
+                
+//                function login(){
+//                    window.location.href="feed.html"  
+//                }
+            })
+        </script>
+    </head>
+    
+    <body>
+<!--        <script src="Login.js"></script>-->
+        <div class="login-box">
+            
+            <h1 id="logintxt">Login</h1>
+            <div class="textbox">
+                <i class="fa fa-user" aria-hidden="true"></i>
+                <input type="text" placeholder="Username" name="un" value="" class="usernamein" id="userlog">
+            </div>
+            
+            <div class="textbox">
+                <i class="fa fa-lock" aria-hidden="true"></i>
+                <input type="password" placeholder="Password" name="pw" value="" class="passwordin" id="passlog">
+            </div>
+            
+<!--        <input class="btns" type="button" name="" value="Login">-->
+            <p class="btn" id="loginbtn"><a href="/feed">Log In</a></p>
+<!--        <input class="btn" type="button" name="" value="Sign Up">-->
+            <p id="signupprompt"><a href='/register'>Sign Up</a></p>
+        </div>
+        
+    </body>
+    
+</html>
