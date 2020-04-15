@@ -1,5 +1,9 @@
 <html>
     <head>
+<!--
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
         
           <style>
@@ -23,7 +27,7 @@
                 }
 
                 body{
-    background-color: antiquewhite;
+                    background-color: antiquewhite;
                 }
               
               form{
@@ -48,10 +52,10 @@
         <div class="mx-auto" style="width: 600px;" id="registerbox">
             <div class="card" style="width: 36rem;">
                 <p class="create">Register</p>
-                    <form>
+                    <form action="/user" method="POST">
                       <div class="form-group">
                             <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="em" placeholder="Email">
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" name="em">
                             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                       </div>
                         
@@ -68,12 +72,12 @@
                         
                       <div class="form-group">
                         <label for="exampleInputPassword1">Confirm Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Re-Enter Password">
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Re-Enter Password" name="rpw">
                       </div>
                       
                         
                       <label for="exampleFormControlFile1">Upload Avatar</label>
-                        <input type="file" class="form-control-file" id="exampleFormControlFile1" name="im">
+                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
                       
                         
                       <div class="form-check">
@@ -81,7 +85,7 @@
                         <label class="form-check-label" for="exampleCheck1">Remember me?</label>
                       </div>
                         
-                        <button type="submit" class="btn btn-primary" id="submitbutt"><a href="/login">Submit</a></button>
+                        <button type="submit" class="btn btn-primary" id="submitbutt">Submit</button>
                 </form>
             </div>
         </div>

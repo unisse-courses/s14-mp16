@@ -41,13 +41,13 @@ h1{
 }
 
 #toProfile{
-    background: url(../img/user.png);
+    background: url(images/user.png);
     height: 40px;
     width: 40px;
 }
 
 #userIcon{
-    background: url(../img/dog.jpg) 50% 50% no-repeat;
+    background: url(images/dog.jpg) 50% 50% no-repeat;
     margin-left: 50px;
     height: 90px;
     width: 90px;
@@ -85,7 +85,7 @@ h1{
 
 
 #menuIcon{
-    background: url(../img/menu.png);
+    background: url(images/menu.png);
     width: 35px;
     height: 35px;
     background-size: cover;
@@ -95,7 +95,7 @@ h1{
 }
 
 #postImg{
-    background: url(../img/cuba.jpg);
+    background: url(images/cuba.jpg);
     width: 80%;
     height: 80%;
     margin-left: auto;
@@ -137,7 +137,7 @@ h1{
 }
 
 #userIconComment{
-    background: url(../img/bailey.JPG) 50% 50% no-repeat;
+    background: url(images/bailey.JPG) 50% 50% no-repeat;
     background-size: cover;
     height: 50px;
     width: 50px;
@@ -177,7 +177,7 @@ h1{
 /*PROFILE*/
 
 #profpic{
-    background: url(../img/bailey.JPG) no-repeat;
+    background: url(images/bailey.JPG) no-repeat;
     background-size: contain;
     height: 200px;
     width: 50%;
@@ -189,7 +189,7 @@ h1{
 }
 
 #profilefeed{
-    background: url(../img/ferris.jpg) no-repeat;
+    background: url(images/ferris.jpg) no-repeat;
     background-size: contain;
     padding-top: 10px;
     margin-bottom: 20px;
