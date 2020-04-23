@@ -1,6 +1,6 @@
 const express = require('express');
 
-var fs = require('fs');
+//var fs = require('fs');
 var router = express.Router();
 const mongoose = require('mongoose');
 const Post = mongoose.model('Post');
@@ -16,17 +16,45 @@ router.post('/', (req, res)=>{
     createPost(req, res);
 });
 
+router.get('/feed', (req, res)=>{
+     Post.find((err, docs) => {
+         console.log(docs);
+        if(!err){
+            res.render('feed', {
+                posts : docs
+            });
+        } 
+         else{
+             console.log("Error fetching posts" + err);
+         }
+     }).lean();
+});
+
+//router.get('/profile', (req, res)=>{
+//     Post.find((err, docs) => {
+//         console.log(docs);
+//        if(!err){
+//            res.render('profile', {
+//                posts : docs
+//            });
+//        } 
+//         else{
+//             console.log("Error fetching posts" + err);
+//         }
+//     }).lean();
+//});
+
 function createPost(req, res){
     var post = new Post();
     post.title = req.body.titl;
     post.caption = req.body.cap;
-    post.image.data = fs.readFileSync(req.body.img);
-    post.image.contentType = 'image/png';
-    //post.author = req.session.user;
+//    post.image.data = fs.readFileSync(req.body.img);
+//    post.image.contentType = 'image/png';
+//    post.author = req.session.user;
     
     post.save((err, doc)=>{
         if(!err){
-            res.redirect('feed');
+            res.redirect('/post/feed');
             console.log('Post saved on the db!');
         }else{
             console.log('Failed to create post: '+ err);
@@ -35,6 +63,7 @@ function createPost(req, res){
         }
     });
 };
+
 
 function getPosts(req, res){
     Post.find({}).sort({date: 1}).exec(function(err, result) {
@@ -48,8 +77,8 @@ function getPosts(req, res){
     });
 };
 
-router.get('/feed', (req, res)=>{
-    getPosts(req, res);
-})
+//router.get('/feed', (req, res)=>{
+//    getPosts(req, res);
+//})
 
 module.exports = router;

@@ -124,13 +124,11 @@ app.get('/posts', function(req, res){
 
 app.get('/new_post', function(req, res){
    res.render('new_post',{
-//      content:'Shit works?'
    }) 
 });
 
 app.get('/profile', function(req, res){
    res.render('profile',{
-//      content:'Shit works?'
    }) 
 });
 
@@ -144,7 +142,6 @@ app.get('/feed', function(req, res){
 app.get('/register', function(req, res){
    res.render('register',{
        layout:''
-//      content:'Shit works?'
    }) 
 });
 

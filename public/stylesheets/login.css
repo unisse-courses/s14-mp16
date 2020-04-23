@@ -88,5 +88,6 @@ body{
 }
 
 #signupprompt{
-    color: coral;
+    margin-top: 10px;
+    margin-left: 40px;
 }

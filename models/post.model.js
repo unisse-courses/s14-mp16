@@ -19,11 +19,11 @@ var postSchema = new mongoose.Schema({
     },
     comments:{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'comments'
+        ref: 'Comment'
     },
     author:{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'user'
+        ref: 'User'
     }
 });
 

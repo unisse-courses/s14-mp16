@@ -42,20 +42,11 @@
     <body>
 <!--        <script src="Login.js"></script>-->
         <div class="login-box">
-        <form action="/user" method="POST">
-            <br>
-            <br>
-            <br>
-            <br>
-            <h1 id="logintxt">Register</h1>
+        <form action="/log" method="POST">    
+            <h1 id="logintxt">Login</h1>
             <div class="textbox">
                 <i class="fa fa-user" aria-hidden="true"></i>
-                <input type="email" placeholder="Email" name="em" value="" class="usernamein" id="userlog">
-            </div>
-            
-            <div class="textbox">
-                <i class="fa fa-lock" aria-hidden="true"></i>
-                <input type="text" placeholder="Username" name="un" value="" class="passwordin" id="passlog">
+                <input type="text" placeholder="Username" name="un" value="" class="usernamein" id="userlog">
             </div>
             
             <div class="textbox">
@@ -63,15 +54,10 @@
                 <input type="password" placeholder="Password" name="pw" value="" class="passwordin" id="passlog">
             </div>
             
-            <div class="textbox">
-                <i class="fa fa-lock" aria-hidden="true"></i>
-                <input type="password" placeholder="Confirm Password" name="rpw" value="" class="passwordin" id="passlog">
-            </div>
-            
 <!--        <input class="btns" type="button" name="" value="Login">-->
-            <button class="btn" id="loginbtn" type="submit">Sign Up</button>
+            <p class="btn" id="loginbtn" type="submit"><a href="/feed">Log In</a></p>
 <!--        <input class="btn" type="button" name="" value="Sign Up">-->
-            
+            <p id="signupprompt"><a href='/user'>Sign Up</a></p>
         </form>
         </div>
         

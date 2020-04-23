@@ -31,11 +31,12 @@ h1{
 .contentContainer{
     margin-left: auto;
     margin-right: auto;
-    margin-top: 120px;
+    margin-top: 85px;
     background-color: lightgray;
     height: auto;
     width: 85%;
     padding: 20px;  
+    padding-top: 50px;
     border-radius: 5px;
     display: block;
 }
@@ -66,6 +67,7 @@ h1{
 #username{
     font-size: 20px;
     margin-left: 10px;
+    margin-top: 20px;
     padding: 5px;
     color: #848B29;
 }
@@ -82,16 +84,9 @@ h1{
     display: block;
 }
 
-
-
-#menuIcon{
-    background: url(images/menu.png);
-    width: 35px;
-    height: 35px;
-    background-size: cover;
-    margin-left: 900px;
-    margin-top: -65px;
-    opacity: 0.6;
+.imgCap{
+    margin-left: 95px;
+    margin-top: 20px;
 }
 
 #postImg{
@@ -111,7 +106,7 @@ h1{
 #icons{
     display: inline-flex;
     margin-left: 74px;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 #icons img{
@@ -125,6 +120,16 @@ h1{
 #apples{
     margin-left: 96px;
     padding: 3px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#numberOfLikes{
+    display: inline;
+}
+
+#likelike{
+    display: inline;
 }
 
 #comments{
@@ -143,6 +148,10 @@ h1{
     width: 50px;
     border-radius: 5px;
     margin-left: 77px;
+}
+
+#comment{
+    margin-top: -10px;
 }
 
 #usernameComment{
@@ -180,7 +189,7 @@ h1{
     background: url(images/bailey.JPG) no-repeat;
     background-size: contain;
     height: 200px;
-    width: 50%;
+    width: 300px;
     text-align: center;
 }
 

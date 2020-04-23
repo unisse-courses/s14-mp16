@@ -15,6 +15,14 @@ router.post('/', (req, res)=>{
     insertUser(req, res);
 });
 
+router.get('/profile', (req, res)=>{
+     User.findOne({'username':'Tan'}, function(err,obj) {
+         res.render('profile', {
+                username : obj.username
+            });
+     })
+});
+
 function insertUser(req, res){
     var user = new User();
     user.email= req.body.em;
@@ -23,7 +31,7 @@ function insertUser(req, res){
     
     user.save((err, doc)=>{
         if(!err){
-            res.render('feed', {
+            res.render('profile', {
                 username: req.body.un
             });
             console.log('User saved!');
@@ -39,9 +47,15 @@ router.get('/login', (req, res)=>{
     });
 });
 
+router.get('/login', (req, res)=>{
+    res.render("login",{
+        layout:''
+    });
+});
+
 router.get('/feed', (req, res)=>{
     res.render("feed", {
-        layout: ''
+        
     });
 });
 
@@ -53,11 +67,11 @@ function loginUser(req, res){
         console.log("user match")
         console.log(username)
         
-        res.render('feed', {
+        res.render('profile', {
             username
         });
         
-        res.redirect('feed');
+        res.redirect('profile');
         
     }, (err)=>{
         res.send(err)

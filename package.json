@@ -14,12 +14,21 @@
     "express": "^4.17.1",
     "express-handlebars": "^4.0.2",
     "express-session": "^1.17.0",
-    "handlebars": "^4.7.6",
     "mongod": "^2.0.0",
     "mongodb": "^3.5.5",
     "mongoose": "^5.9.7",
     "nodemon": "^2.0.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "handlebars": "^4.5.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unisse-courses/s14-mp16.git"
+  },
+  "bugs": {
+    "url": "https://github.com/unisse-courses/s14-mp16/issues"
+  },
+  "homepage": "https://github.com/unisse-courses/s14-mp16#readme",
   "description": ""
 }
