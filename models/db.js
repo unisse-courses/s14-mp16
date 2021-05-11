@@ -1,13 +1,15 @@
-const mongoose = require('mongoose'); 
 const databaseURL = "mongodb+srv://simplixAdmin:admin1@simplix.zax3j.mongodb.net/SimplixDB?retryWrites=true&w=majority";
 
-mongoose.connect(databaseURL,{ useNewUrlParser: true}, (err)=>{
-    if(!err){
-        console.log("Connect success")
-    }else{
-        console.log("Error connecting to db" + err)
-    }
-});
+const mongoose = require('mongoose');
+const { dbURL } = require('../config');
+
+const options = { useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false };
+
+mongoose.connect(dbURL, options);
+
+module.exports = mongoose;
 
 require('./user.model');
 require('./post.model');

@@ -14,8 +14,9 @@ var app = express();
 
 const mongoClient = mongodb.MongoClient;
 const databaseURL = "mongodb+srv://simplixAdmin:admin1@simplix.zax3j.mongodb.net/SimplixDB?retryWrites=true&w=majority";
-const dbname = "userDB";
+const dbname = "SimplixDB";
 
+const { envPort, sessionKey } = require('./config');
 const options = { useUnifiedTopology: true };
 
 const userController = require("./controllers/userController");
@@ -72,12 +73,12 @@ app.set("views", path.join(__dirname, "/views/"));
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-app.set("port", process.env.PORT || 3000);
+app.set("port", envPort || 3000);
 
 app.use(
   session({
-    secret: "secretsecret",
-    store: new MongoStore({ url: databaseURL}),
+    secret: sessionKey,
+    store: new MongoStore({ mongooseConnection: mongoose.connection }),
     resave: false,
     saveUninitialized: true,
     cookie: { secure: false, maxAge: 1000 * 60 * 60 * 24 * 7 },
