@@ -30,8 +30,8 @@
             <!--data:image/<%=image.img.contentType%>;base64, <%=image.img.data.toString('base64')%>-->
             <div id="profilefeed" class="rounded mx-auto d-block">
                 <img src="{{this.image}}">
-                <h4>{{this.title}}</h4>
-                <p id="profileCaption">{{this.caption}}</p>
+                <h4 class="profileCaption">{{this.title}}</h4>
+                <p class="profileCaption">{{this.caption}}</p>
                 <p>{{this.likes}} liked this</p>
                 {{#if ../this.edit}}
                 <a class="btn btn-warning" href="/editpost?id={{this.id}}">Edit</a>
