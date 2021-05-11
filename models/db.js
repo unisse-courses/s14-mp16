@@ -1,6 +1,7 @@
 const mongoose = require('mongoose'); 
+const databaseURL = "mongodb+srv://simplixAdmin:admin1@simplix.zax3j.mongodb.net/SimplixDB?retryWrites=true&w=majority";
 
-mongoose.connect("mongodb://localhost:27017/userDB",{ useNewUrlParser: true}, (err)=>{
+mongoose.connect(databaseURL,{ useNewUrlParser: true}, (err)=>{
     if(!err){
         console.log("Connect success")
     }else{

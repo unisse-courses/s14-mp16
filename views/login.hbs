@@ -9,32 +9,6 @@
                     e.preventDefault()
 					send()					
                 });
-/*                
-                $(".btn").click(send)
-                
-                function send(){
-                    console.log("reached send function")
-                    var location=''
-                    let un = $(".usernamein").val()
-                    let pw = $(".passwordin").val()
-                    
-                    if(un==unsupp && pw==pwsupp){
-                        login()
-//                        alert("SADASD")
-                    }
-                    else if(un=='' || pw==''){
-                        alert("MUST ENTER CREDENTIALS")
-                    }
-                    else{
-                        alert("WRONG PASSWORD/USERNAME")
-                    }
-                    
-                    
-                }
- */               
-//                function login(){
-//                    window.location.href="feed.html"  
-//                }
             });
         </script>
     </head>
@@ -54,7 +28,8 @@
             </div>
             
 <!--        <input class="btns" type="button" name="" value="Login">-->
-            <p class="btn" id="loginbtn" type="submit"><a href="/feed">Log In</a></p>
+            <button type="submit" class = "btn" id="loginbtn">Login</button>
+            {{!-- <p class="btn" id="loginbtn" type="submit"><a href="/feed">Log In</a></p> --}}
 <!--        <input class="btn" type="button" name="" value="Sign Up">-->
             <p id="signupprompt"><a href='/user'>No account yet? Sign Up</a></p>
         </form>

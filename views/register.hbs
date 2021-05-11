@@ -1,47 +1,49 @@
 <html>
-    <head>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel='stylesheet' type='text/css' href='/stylesheets/login.css' />
-        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-        <script>
-            $(document).ready(function(e){
-                $(".btn").submit(function(e){
-                    e.preventDefault()
-					send()					
-                });
-/*                
-                $(".btn").click(send)
-                
-                function send(){
-                    console.log("reached send function")
-                    var location=''
-                    let un = $(".usernamein").val()
-                    let pw = $(".passwordin").val()
-                    
-                    if(un==unsupp && pw==pwsupp){
-                        login()
-//                        alert("SADASD")
-                    }
-                    else if(un=='' || pw==''){
-                        alert("MUST ENTER CREDENTIALS")
-                    }
-                    else{
-                        alert("WRONG PASSWORD/USERNAME")
-                    }
-                    
-                    
-                }
- */               
-//                function login(){
-//                    window.location.href="feed.html"  
-//                }
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel='stylesheet' type='text/css' href='/stylesheets/login.css' />
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script>
+        $(document).ready(function (e) {
+            $(".btn").submit(function (e) {
+                e.preventDefault()
+                send()
             });
-        </script>
-    </head>
-    
-    <body>
-<!--        <script src="Login.js"></script>-->
-        <div class="login-box">
+            /*                
+                            $(".btn").click(send)
+                            
+                            function send(){
+                                console.log("reached send function")
+                                var location=''
+                                let un = $(".usernamein").val()
+                                let pw = $(".passwordin").val()
+                                
+                                if(un==unsupp && pw==pwsupp){
+                                    login()
+            //                        alert("SADASD")
+                                }
+                                else if(un=='' || pw==''){
+                                    alert("MUST ENTER CREDENTIALS")
+                                }
+                                else{
+                                    alert("WRONG PASSWORD/USERNAME")
+                                }
+                                
+                                
+                            }
+             */
+            //                function login(){
+            //                    window.location.href="feed.html"  
+            //                }
+        });
+    </script>
+</head>
+
+<body>
+    <!--        <script src="Login.js"></script>-->
+    <div class="login-box">
         <form action="/user" method="POST">
             <br>
             <br>
@@ -50,31 +52,37 @@
             <h1 id="logintxt">Register</h1>
             <div class="textbox">
                 <i class="fa fa-user" aria-hidden="true"></i>
-                <input type="email" placeholder="Email" name="em" value="" class="usernamein" id="userlog">
+                <input type="email" placeholder="Email" name="em" value="" class="usernamein" id="userlog" required>
             </div>
-            
+            <div class="textbox">
+                <i class="fa fa-user" aria-hidden="true"></i>
+                <input type="text" placeholder="Full Name" name="fn" value="" class="passwordin" id="passlog" required>
+            </div>
+
+            <div class="textbox">
+                <i class="fa fa-user" aria-hidden="true"></i>
+                <input type="text" placeholder="Username" name="un" value="" class="passwordin" id="passlog" required>
+            </div>
+
             <div class="textbox">
                 <i class="fa fa-lock" aria-hidden="true"></i>
-                <input type="text" placeholder="Username" name="un" value="" class="passwordin" id="passlog">
+                <input type="password" placeholder="Password" name="pw" value="" class="passwordin" id="passlog"
+                    required>
             </div>
-            
+
             <div class="textbox">
                 <i class="fa fa-lock" aria-hidden="true"></i>
-                <input type="password" placeholder="Password" name="pw" value="" class="passwordin" id="passlog">
+                <input type="password" placeholder="Confirm Password" name="rpw" value="" class="passwordin"
+                    id="passlog" required>
             </div>
-            
-            <div class="textbox">
-                <i class="fa fa-lock" aria-hidden="true"></i>
-                <input type="password" placeholder="Confirm Password" name="rpw" value="" class="passwordin" id="passlog">
-            </div>
-            
-<!--        <input class="btns" type="button" name="" value="Login">-->
+
+            <!--        <input class="btns" type="button" name="" value="Login">-->
             <button class="btn" id="loginbtn" type="submit">Sign Up</button>
-<!--        <input class="btn" type="button" name="" value="Sign Up">-->
-            
+            <!--        <input class="btn" type="button" name="" value="Sign Up">-->
+
         </form>
-        </div>
-        
-    </body>
-    
+    </div>
+
+</body>
+
 </html>

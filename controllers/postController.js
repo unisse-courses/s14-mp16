@@ -1,84 +1,97 @@
-const express = require('express');
-
-//var fs = require('fs');
+const express = require("express");
 var router = express.Router();
-const mongoose = require('mongoose');
-const Post = mongoose.model('Post');
+const mongoose = require("mongoose");
+const { post } = require("./userController");
+const Post = mongoose.model("Post");
+const User = mongoose.model("User");
+// const CustomComment = require('./../models/comment');
+//require('./../models/comment');
 
-router.get('/', (req, res)=>{
-    res.render("new_post",{
-        
-    });
+var multer = require("multer");
+var path = require("path");
+
+var storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "uploads");
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.fieldname + "-" + Date.now());
+  },
 });
 
+var upload = multer({ storage: storage });
 
-router.post('/', (req, res)=>{
-    createPost(req, res);
+var currentusername;
+var currentuid;
+
+router.get("/", (req, res) => {
+  checkValidLogin(req, res);
+  initializeSession(req);
+  res.render("new_post", {});
 });
 
-router.get('/feed', (req, res)=>{
-     Post.find((err, docs) => {
-         console.log(docs);
-        if(!err){
-            res.render('feed', {
-                posts : docs
-            });
-        } 
-         else{
-             console.log("Error fetching posts" + err);
-         }
-     }).lean();
-});
-
-//router.get('/profile', (req, res)=>{
-//     Post.find((err, docs) => {
-//         console.log(docs);
-//        if(!err){
-//            res.render('profile', {
-//                posts : docs
-//            });
-//        } 
-//         else{
-//             console.log("Error fetching posts" + err);
-//         }
-//     }).lean();
-//});
-
-function createPost(req, res){
-    var post = new Post();
-    post.title = req.body.titl;
-    post.caption = req.body.cap;
-//    post.image.data = fs.readFileSync(req.body.img);
-//    post.image.contentType = 'image/png';
-//    post.author = req.session.user;
-    
-    post.save((err, doc)=>{
-        if(!err){
-            res.redirect('/post/feed');
-            console.log('Post saved on the db!');
-        }else{
-            console.log('Failed to create post: '+ err);
-            req.flash(err, 'Could not create post. Please try again.');
-            res.redirect('new_post');
+router.get("/feed", (req, res) => {
+  checkValidLogin(req, res);
+  initializeSession(req);
+  Post.find((err, docs) => {
+    if (!err) {
+      var imgs = {};
+      docs.forEach(function(doc, index){
+        console.log("text: " + doc);
+        if (doc.image) {
+          var imag =
+            "data:image/" +
+            doc.image.contentType +
+            ";base64," +
+            doc.image.data.toString("base64");
+  
+          docs[index].img = imag;
         }
-    });
-};
-
-
-function getPosts(req, res){
-    Post.find({}).sort({date: 1}).exec(function(err, result) {
-        var postObjects = [];
-        
-        result.forEach(function(doc) {
-            postObjects.push(doc.toObject());
+        docs[index].comments.forEach(function(comment, cindex){
+          if(comment.author._id == req.session.details._id){
+            docs[index].comments[cindex].show = true
+          }
         });
-        
-        res.render('feed', {postModel: postObjects});
-    });
-};
+        console.log("COMMENT: " + JSON.stringify(docs[index].comments));
+      });
+      res.render("feed", {
+        posts: docs,
+        username: req.session.details.username,
+        image: imgs,
+      });
+    } else {
+      console.log("Error fetching posts" + err);
+    }
+  }).lean();
+});
 
-//router.get('/feed', (req, res)=>{
-//    getPosts(req, res);
-//})
+
+function getPosts(req, res) {
+  Post.find({})
+    .sort({ date: 1 })
+    .exec(function (err, result) {
+      var postObjects = [];
+
+      result.forEach(function (doc) {
+        postObjects.push(doc.toObject());
+      });
+
+      res.render("feed", { postModel: postObjects });
+    });
+}
+
+function checkValidLogin(req, res) {
+  console.log("checking,....");
+  if (!req.session.userid) {
+    res.redirect("/");
+  }
+}
+
+function initializeSession(req) {
+  User.findOne({ _id: req.session.userid }, function (err, obj) {
+    //currentusername = obj.fullname;
+    currentuid = obj._id;
+  });
+}
 
 module.exports = router;

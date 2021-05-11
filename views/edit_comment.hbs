@@ -1,0 +1,12 @@
+<div class="mx-auto" style="width: 600px;" id="createcard">
+    <div class="card" style="width: 36rem;" , id="createpost">
+        <p class="create">Edit Comment</p>
+        <form method="POST" action="/editcomment">
+            <input type="hidden" id="uid" name="uid" value="{{uid}}"><br>
+            <input type="hidden" id="post" name="post" value="{{post}}">
+            <input class="form-control form-control-lg" type="text" placeholder="Comment" id="comment" name="comment"
+                value="{{comment}}"><br>
+            <button type="submit" class="btn btn-primary" id="buttpost">Edit</button>
+        </form>
+    </div>
+</div>

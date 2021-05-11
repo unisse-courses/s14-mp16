@@ -1,54 +1,75 @@
 <html>
-    <head>
-        <script>
-            function like(){
-                var value = parseInt(document.getElementById('numberOfLikes').value, 10);
-                value = isNaN(value) ? 0 : value;
-                value++;
-                document.getElementById('numberOfLikes').innerHTML = value;
-            }
-        </script>
-    </head>
-    
-    <body>
-        <div class="contentContainer">
-            {{#each posts}}
-                <div class="postHeader">
-                    <div id="userIcon"></div>
-                    <div id="bananas">
-                        <p id="username">username</p> <br>
-                        <p id="datetime">{{date}}</p>
-                        <div id="menuIcon"></div>
-                    </div>
-                </div>
-                <div class="imgCap">
-                    <img src="{{img}}"/>
-                    <p id="postTitle"><strong>{{this.title}}</strong></p>
-                    <p id="caption">{{this.caption}}</p>
-                </div>
-                <div class="postFooter">
-                    <div id="icons">
-                        <img src="../public/stylesheets/images/like.png" id="btnLike" onclick="like()">
-                        <img src="../public/stylesheets/images/comment.png" id="btnComment">
-                    </div>
-                    <div id="apples">
-                        <p id="numberOfLikes">0</p><p id="likelike"> Likes</p>
-                    </div>
-                </div>
-                <div id="comments">
-                        <div id="userIconComment"></div>
-                        <div id="kiwi">
-                            <p id="usernameComment">baileybear</p>
-                            <div id="comment">Super loooove this!</div>
-                        </div>
-                </div>
-                <br><br>
-                <hr>
-            {{/each}}
+
+<head>
+    <script>
+        function like(id){
+            window.location.replace('/like?id=' + id);
+        }
+    </script>
+</head>
+
+<body>
+    <div class="contentContainer">
+        {{#each posts}}
+        <div class="postHeader">
+            <div id="userIcon"></div>
+            <div id="bananas">
+                <p id="username"><a style="text-decoration: none"
+                        href="/profile?id={{this.author._id}}">{{this.author.fullname}}</a></p> <br>
+                <p id="datetime">{{date}}</p>
+                <div id="menuIcon"></div>
+            </div>
         </div>
+        <div class="imgCap">
+            <img src="{{this.img}}" />
+            <p id="postTitle"><strong>{{this.title}}</strong></p>
+            <p id="caption">{{this.caption}}</p>
+        </div>
+        <div class="postFooter">
+            <div id="icons">
+                <img class="btnLike" id="btnLike" onclick="like('{{this._id}}')">
+            </div>
+            <div id="likesContainer">
+                <p id="numberOfLikes">{{this.likes}}</p>
+                <p id="likelike"> liked this</p>
+            </div>
+        </div>
+        {{#each this.comments}}
+        <div id="comments">
+            <div id="userIconComment"></div>
+            <div id="commentContainer">
+                <p id="usernameComment"><a style="text-decoration: none"
+                        href="/profile?id={{this.author._id}}">{{this.author.fullname}}</a></p>
+                <div id="comment">{{this.comment}}</div>
+                {{#if this.show}}
+                <br>
+                
+                <a class="btn btn-warning" href="/editcomment?id={{this._id}}&post={{../this._id}}&comment={{this.comment}}">Edit</a>
+                <a class="btn btn-danger" href="/deletecomment?id={{this._id}}&post={{../this._id}}">Delete</a>
+                {{/if}}
+            </div>
+        </div>
+        <br><br>
+        {{/each}}
+        <div id="comments">
+            <div id="userIconComment"></div>
+            <div id="commentContainer">
+                <p id="usernameComment">{{../username}}</p>
+                <div id="comment">{{this.comment}}</div>
+                <form class="form-inline my-2 my-lg-0" id="commentbar" method="post" action="/comment">
+                    <input class="form-control mr-sm-2" name="postid" id="postid" type="hidden" aria-label="postid"
+                        value="{{this._id}}">
+                    <input class="form-control mr-sm-2" name="comment" id="comment" type="text" placeholder="Comment"
+                        aria-label="Comment">
+                    <button class="btn btn-dark" type="submit" id="buttcomment">Comment</button>
+                </form>
+            </div>
+        </div>
+        <br><br>
+        <hr>
+        {{/each}}
+    </div>
 
-    </body>
-</html> 
+</body>
 
-
-
+</html>

@@ -7,6 +7,9 @@ var commentSchema = new mongoose.Schema({
     },
     comment:{
         type: String
+    },
+    date:{
+        type: Date
     }
 });
 

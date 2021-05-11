@@ -30,6 +30,7 @@ $(document).ready(function() {
         };
         
         $.post('login', user, function(data, status) {
+            console.log('yooo');
             console.log(data);
         });
     });

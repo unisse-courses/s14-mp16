@@ -1,0 +1,16 @@
+<div class="mx-auto" style="width: 600px;" id="createcard">
+    <div class="card" style="width: 36rem;" , id="createpost">
+        <p class="create">Edit Post</p>
+        <form method="POST" action="/editpost">
+            <input type="hidden" name="id" value="{{id}}"><br>
+            <input class="form-control form-control-lg" type="text" placeholder="Title" id="title" name="title"
+                value="{{title}}"><br>
+            <div class="form-group">
+                <textarea class="form-control" id="exampleFormControlTextarea3" rows="7" placeholder="Text"
+                    name="caption">{{caption}}</textarea>
+            </div>
+            <div id="profilefeed"><img src="{{img}}" /></div>
+            <button type="submit" class="btn btn-primary" id="buttpost">Edit</button>
+        </form>
+    </div>
+</div>

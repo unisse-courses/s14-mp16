@@ -5,6 +5,10 @@ var userSchema = new mongoose.Schema({
         type: String,
         required: 'This field is required'
     },
+    fullname:{
+        type: String,
+        required: 'This field is required'
+    },
     email:{
         type: String,
         required: 'This field is required'
