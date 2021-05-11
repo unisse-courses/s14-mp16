@@ -34,7 +34,7 @@ var postSchema = new mongoose.Schema({
             },
           },
         },
-        date: { type: Date, default: Date.now },
+        date: { type: Date, default: Date.now.toISOString },
       },
     ],
   },
