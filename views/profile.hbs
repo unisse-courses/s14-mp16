@@ -33,7 +33,7 @@
                 <h4>{{this.title}}</h4>
                 <p>{{this.caption}}</p>
                 <p>{{this.likes}} liked this</p>
-                {{#if this.edit}}
+                {{#if ../this.edit}}
                 <a class="btn btn-warning" href="/editpost?id={{this.id}}">Edit</a>
                 <a class="btn btn-danger" href="/deletepost?id={{this.id}}">Delete</a>
                 {{/if}}
