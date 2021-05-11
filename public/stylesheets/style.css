@@ -29,6 +29,10 @@ h1 {
   z-index: 9999;
 }
 
+#postTitle {
+    margin-top: 5px;
+}
+
 .contentContainer {
   margin-left: auto;
   margin-right: auto;
@@ -74,7 +78,7 @@ h1 {
 }
 
 #datetime {
-  margin-top: -20px;
+  margin-top: -10px;
   margin-left: 15px;
   flex-direction: column;
   font-size: 16px;
