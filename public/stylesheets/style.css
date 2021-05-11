@@ -15,7 +15,10 @@ h1 {
 
 #buttpost {
   background-color: burlywood;
-    margin-top: -10px;
+}
+
+#buttcomment {
+    margin-top: -7px;
 }
 
 #header {
