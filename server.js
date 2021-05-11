@@ -45,24 +45,6 @@ var storage = multer.diskStorage({
 
 var upload = multer({ storage: storage });
 
-//mongoClient.connect(databaseURL, options, function (err, client) {
-//  if (err) throw err;
-//  const dbo = client.db(dbname);
-//
-//  //Will create a collection if it has not yet been made
-//  dbo.createCollection("users", function (err, res) {
-//    if (err) throw err;
-//    console.log("Collection created for users!");
-//    //    client.close();
-//  });
-//
-//  dbo.createCollection("posts", function (err, res) {
-//    if (err) throw err;
-//    console.log("Collection created for posts!");
-//    client.close();
-//  });
-//});
-
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 app.use(bodyParser.json()); // support json encoded bodie
 
