@@ -8,7 +8,7 @@
         <h1>{{account.fullname}}</h1>
         
         
-        <p class="title" id="usernameprof">{{account.username}}</p>
+        <p class="title">{{account.username}}</p>
         <p class="title">{{account.email}}</p>
         {{#if this.edit}}
         <a class="btn btn-secondary" href="/edit">Edit Profile</a>
@@ -31,7 +31,7 @@
             <div id="profilefeed" class="rounded mx-auto d-block">
                 <img src="{{this.image}}">
                 <h4>{{this.title}}</h4>
-                <p>{{this.caption}}</p>
+                <p id="profileCaption">{{this.caption}}</p>
                 <p>{{this.likes}} liked this</p>
                 {{#if ../this.edit}}
                 <a class="btn btn-warning" href="/editpost?id={{this.id}}">Edit</a>
