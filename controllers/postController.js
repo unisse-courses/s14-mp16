@@ -33,9 +33,8 @@ router.get("/", (req, res) => {
 router.get("/feed", (req, res) => {
   checkValidLogin(req, res);
   initializeSession(req);
-  Post.find((err, docs) => {
+  Post.find({}, null, {sort: {date: -1}}, (err, docs) => {
     if (!err) {
-      var imgs = {};
       docs.forEach(function(doc, index){
         console.log("text: " + doc);
         if (doc.image) {
@@ -56,8 +55,7 @@ router.get("/feed", (req, res) => {
       });
       res.render("feed", {
         posts: docs,
-        username: req.session.details.username,
-        image: imgs,
+        username: req.session.details.username
       });
     } else {
       console.log("Error fetching posts" + err);
@@ -89,7 +87,7 @@ function checkValidLogin(req, res) {
 
 function initializeSession(req) {
   User.findOne({ _id: req.session.userid }, function (err, obj) {
-    //currentusername = obj.fullname;
+    currentusername = obj.fullname;
     currentuid = obj._id;
   });
 }
